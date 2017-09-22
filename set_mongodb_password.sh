@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Admin User
 MONGODB_ADMIN_USER=${MONGODB_ADMIN_USER:-"admin"}
