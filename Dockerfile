@@ -1,7 +1,7 @@
 FROM mongo:3.4
 
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends logrotate
+	&& apt-get install -y --no-install-recommends logrotate \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV AUTH yes
