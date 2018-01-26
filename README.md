@@ -26,23 +26,3 @@ services:
       - /var/log/mongodb:/var/log/mongodb
     restart: "always"
 ```
-## Enable log rotation for mongodb
-`sudo nano /etc/logrotate.d/mongodb`
-
-```
-/var/docker/mongodb/log/mongodb.log {
-    daily
-    missingok
-    rotate 30
-    compress
-    delaycompress
-    notifempty
-    create 640 root root
-    postrotate
-        /usr/bin/docker exec mongodb /usr/bin/pkill --signal SIGUSR1 mongod
-        rm /var/docker/mongodb/log/mongodb.log.????-??-??T??-??-??
-    endscript
-}
-```
-
-now you can try run rotation - `logrotate -f /etc/logrotate.d/mongodb`
