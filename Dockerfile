@@ -1,4 +1,8 @@
-FROM mongo:3.4
+FROM mongo:3.7
+
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends logrotate
+	&& rm -rf /var/lib/apt/lists/*
 
 ENV AUTH yes
 ENV STORAGE_ENGINE wiredTiger
