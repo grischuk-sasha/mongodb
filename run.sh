@@ -2,7 +2,7 @@
 set -m
  
 mongodb_cmd="mongod --storageEngine $STORAGE_ENGINE --logpath /var/log/mongodb/mongodb.log"
-cmd="$mongodb_cmd --master"
+cmd="$mongodb_cmd --bind_ip 0.0.0.0"
 if [ "$AUTH" == "yes" ]; then
     cmd="$cmd --auth"
 fi
