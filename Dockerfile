@@ -10,9 +10,8 @@ RUN apt-get update \
 
 ADD ./logrotate/mongodb /etc/logrotate.d/mongodb
 
-ADD ./init.d/disable-transparent-hugepages /etc/init.d/disable-transparent-hugepages
-RUN chmod 755 /etc/init.d/disable-transparent-hugepages
-RUN update-rc.d disable-transparent-hugepages defaults
+RUN echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
+RUN echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag
 
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
