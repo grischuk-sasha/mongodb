@@ -2,7 +2,7 @@
 set -m
  
 mongodb_cmd="mongod --storageEngine $STORAGE_ENGINE --logpath /var/log/mongodb/mongodb.log"
-cmd="$mongodb_cmd --rest --master"
+cmd="$mongodb_cmd --master"
 if [ "$AUTH" == "yes" ]; then
     cmd="$cmd --auth"
 fi
