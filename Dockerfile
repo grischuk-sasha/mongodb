@@ -10,9 +10,6 @@ RUN apt-get update \
 
 ADD ./logrotate/mongodb /etc/logrotate.d/mongodb
 
-RUN echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
-RUN echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag
-
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
 
